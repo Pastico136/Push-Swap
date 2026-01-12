@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned_putnbr_len.c                           :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 11:39:45 by parenvoi          #+#    #+#             */
-/*   Updated: 2025/12/22 12:45:55 by paco             ###   ########.fr       */
+/*   Created: 2026/01/06 11:16:49 by paco              #+#    #+#             */
+/*   Updated: 2026/01/06 14:06:53 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	len_of_number(unsigned int nbr)
+long ft_atol(const char *str)
 {
-	int	len;
+	long	res;
+	long	sign;
+	long	i;
 
-	len = 0;
-	while (nbr >= 10)
+	i = 0;
+	sign = 1;
+	res = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		nbr /= 10;
-		len++;
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	len++;
-	return (len);
-}
-
-int	ft_unsigned_putnbr_len(unsigned int nbr)
-{
-	int	len;
-
-	len = len_of_number(nbr);
-	if (nbr >= 10)
-		ft_unsigned_putnbr_len(nbr / 10);
-	nbr = nbr % 10 + '0';
-	write(1, &nbr, 1);
-	return (len);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	return (res * sign);
 }

@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned_putnbr_len.c                           :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 11:39:45 by parenvoi          #+#    #+#             */
-/*   Updated: 2025/12/22 12:45:55 by paco             ###   ########.fr       */
+/*   Created: 2026/01/12 16:27:20 by paco              #+#    #+#             */
+/*   Updated: 2026/01/12 22:45:17 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "push_swap.h"
 
-static int	len_of_number(unsigned int nbr)
+void    stack_init(t_stack *stack)
 {
-	int	len;
-
-	len = 0;
-	while (nbr >= 10)
-	{
-		nbr /= 10;
-		len++;
-	}
-	len++;
-	return (len);
-}
-
-int	ft_unsigned_putnbr_len(unsigned int nbr)
-{
-	int	len;
-
-	len = len_of_number(nbr);
-	if (nbr >= 10)
-		ft_unsigned_putnbr_len(nbr / 10);
-	nbr = nbr % 10 + '0';
-	write(1, &nbr, 1);
-	return (len);
+    stack->length = 0;
+    stack->start = NULL;
+    stack->end = NULL;
 }

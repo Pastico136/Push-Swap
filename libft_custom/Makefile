@@ -25,6 +25,7 @@ src/ft_isascii.c \
 src/ft_isprint.c \
 src/ft_strlen.c \
 src/ft_atoi.c \
+src/ft_atol.c \
 src/ft_tolower.c \
 src/ft_toupper.c \
 src/ft_strncmp.c \
@@ -51,7 +52,8 @@ src/ft_striteri.c \
 src/ft_putchar_fd.c \
 src/ft_putstr_fd.c \
 src/ft_putendl_fd.c \
-src/ft_putnbr_fd.c
+src/ft_putnbr_fd.c \
+src/ft_free_tabstr.c
 
 SRCS = $(SRC_PRINTF) \
 $(SRC_GNL) \

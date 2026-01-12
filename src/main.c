@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned_putnbr_len.c                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 11:39:45 by parenvoi          #+#    #+#             */
-/*   Updated: 2025/12/22 12:45:55 by paco             ###   ########.fr       */
+/*   Created: 2026/01/08 14:39:50 by paco              #+#    #+#             */
+/*   Updated: 2026/01/12 23:07:49 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "push_swap.h"
 
-static int	len_of_number(unsigned int nbr)
+int	main(int argc, char **argv)
 {
-	int	len;
+    t_stack a;
+    t_stack b;
+    char    **tabstr;
 
-	len = 0;
-	while (nbr >= 10)
-	{
-		nbr /= 10;
-		len++;
-	}
-	len++;
-	return (len);
-}
-
-int	ft_unsigned_putnbr_len(unsigned int nbr)
-{
-	int	len;
-
-	len = len_of_number(nbr);
-	if (nbr >= 10)
-		ft_unsigned_putnbr_len(nbr / 10);
-	nbr = nbr % 10 + '0';
-	write(1, &nbr, 1);
-	return (len);
+    stack_init(&a);
+    stack_init(&b);
+    tabstr = parsing_base(argc, argv);
+    if (!tabstr)
+        return (1);
+    a = make_stack_a(tabstr);
+    ft_free_tabstr(tabstr);
+    stack_print(&a);
+    stack_clear(&a);
+	return (0);
 }

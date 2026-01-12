@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned_putnbr_len.c                           :+:      :+:    :+:   */
+/*   make_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 11:39:45 by parenvoi          #+#    #+#             */
-/*   Updated: 2025/12/22 12:45:55 by paco             ###   ########.fr       */
+/*   Created: 2026/01/12 20:47:06 by paco              #+#    #+#             */
+/*   Updated: 2026/01/12 22:46:45 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "push_swap.h"
 
-static int	len_of_number(unsigned int nbr)
+t_stack    make_stack_a(char **tabstr)
 {
-	int	len;
+    t_stack a;
+    t_stacknode *node;
+    int i;
+    int tab_value;
 
-	len = 0;
-	while (nbr >= 10)
-	{
-		nbr /= 10;
-		len++;
-	}
-	len++;
-	return (len);
-}
-
-int	ft_unsigned_putnbr_len(unsigned int nbr)
-{
-	int	len;
-
-	len = len_of_number(nbr);
-	if (nbr >= 10)
-		ft_unsigned_putnbr_len(nbr / 10);
-	nbr = nbr % 10 + '0';
-	write(1, &nbr, 1);
-	return (len);
+    i = 0;
+    stack_init(&a);
+    while (tabstr[i])
+    {
+        tab_value = ft_atoi(tabstr[i]);
+        node = new_node(tab_value);
+        stack_add_back(&a, node);
+        i++;
+    }
+    return (a);
 }

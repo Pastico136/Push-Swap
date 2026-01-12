@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned_putnbr_len.c                           :+:      :+:    :+:   */
+/*   ft_free_tabstr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 11:39:45 by parenvoi          #+#    #+#             */
-/*   Updated: 2025/12/22 12:45:55 by paco             ###   ########.fr       */
+/*   Created: 2026/01/08 11:51:07 by paco              #+#    #+#             */
+/*   Updated: 2026/01/08 11:55:51 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	len_of_number(unsigned int nbr)
+void    ft_free_tabstr(char **tabstr)
 {
-	int	len;
+    int i;
 
-	len = 0;
-	while (nbr >= 10)
-	{
-		nbr /= 10;
-		len++;
-	}
-	len++;
-	return (len);
-}
-
-int	ft_unsigned_putnbr_len(unsigned int nbr)
-{
-	int	len;
-
-	len = len_of_number(nbr);
-	if (nbr >= 10)
-		ft_unsigned_putnbr_len(nbr / 10);
-	nbr = nbr % 10 + '0';
-	write(1, &nbr, 1);
-	return (len);
+    i = 0;
+    while (tabstr[i])
+    {
+        free(tabstr[i]);
+        i++;
+    }
+    free(tabstr);
 }

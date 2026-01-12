@@ -4,7 +4,14 @@ LIBFT = libft_custom/libft.a
 
 CC = cc
 
-SRC = src/parser.c 
+SRC = src/parser.c \
+	src/make_stack_a.c \
+	src/lib_dlist/stack_print.c \
+	src/lib_dlist/stack_init.c \
+	src/lib_dlist/stack_clear.c \
+	src/lib_dlist/stack_add_back.c \
+	src/lib_dlist/new_node.c \
+	src/main.c
 
 HEADER = -I includes/ \
 		-I libft_custom/
