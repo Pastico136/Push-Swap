@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_stack_a.c                                     :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 20:47:06 by paco              #+#    #+#             */
-/*   Updated: 2026/01/14 23:55:59 by paco             ###   ########.fr       */
+/*   Created: 2026/01/15 13:41:53 by paco              #+#    #+#             */
+/*   Updated: 2026/01/15 14:45:06 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack    make_stack_a(char **tabstr)
+void    push_b(t_stack *a, t_stack *b)
 {
-    t_stack a;
     t_stacknode *node;
-    int i;
-    int tab_value;
 
-    i = 0;
-    stack_init(&a);
-    while (tabstr[i])
-    {
-        tab_value = ft_atoi(tabstr[i]);
-        node = new_node(tab_value);
-        stack_push_back(&a, node);
-        i++;
-    }
-    return (a);
+    if (!a || a->length == 0)
+        return ;
+    node = stack_pop_front(a);
+    stack_push_front(b, node);
+    write(1, "pb\n", 3);
 }

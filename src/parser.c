@@ -6,7 +6,7 @@
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 21:53:31 by parenvoi          #+#    #+#             */
-/*   Updated: 2026/01/11 17:44:23 by paco             ###   ########.fr       */
+/*   Updated: 2026/01/12 23:55:00 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ char	**parsing_base(int argc, char **argv)
 	{
 		if (tabstr)
 			ft_free_tabstr(tabstr);
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		return (NULL);
 	}
 	return (tabstr);

@@ -9,8 +9,19 @@ SRC = src/parser.c \
 	src/lib_dlist/stack_print.c \
 	src/lib_dlist/stack_init.c \
 	src/lib_dlist/stack_clear.c \
-	src/lib_dlist/stack_add_back.c \
 	src/lib_dlist/new_node.c \
+	src/lib_dlist/stack_utils.c \
+	src/instructions/sa.c \
+	src/instructions/sb.c \
+	src/instructions/ss.c \
+	src/instructions/pa.c \
+	src/instructions/pb.c \
+	src/instructions/ra.c \
+	src/instructions/rb.c \
+	src/instructions/rr.c \
+	src/instructions/rra.c \
+	src/instructions/rrb.c \
+	src/instructions/rrr.c \
 	src/main.c
 
 HEADER = -I includes/ \

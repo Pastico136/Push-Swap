@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_stack_a.c                                     :+:      :+:    :+:   */
+/*   rra.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 20:47:06 by paco              #+#    #+#             */
-/*   Updated: 2026/01/14 23:55:59 by paco             ###   ########.fr       */
+/*   Created: 2026/01/15 14:49:32 by paco              #+#    #+#             */
+/*   Updated: 2026/01/15 15:01:59 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack    make_stack_a(char **tabstr)
+void    reverse_rotate_a(t_stack *a)
 {
-    t_stack a;
     t_stacknode *node;
-    int i;
-    int tab_value;
 
-    i = 0;
-    stack_init(&a);
-    while (tabstr[i])
-    {
-        tab_value = ft_atoi(tabstr[i]);
-        node = new_node(tab_value);
-        stack_push_back(&a, node);
-        i++;
-    }
-    return (a);
+    if (!a || a->length < 2)
+        return ;
+    node = stack_pop_back(a);
+    stack_push_front(a, node);
+    write(1, "rra\n", 4);
 }

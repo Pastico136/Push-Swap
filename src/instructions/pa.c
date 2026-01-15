@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_add_back.c                                   :+:      :+:    :+:   */
+/*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 17:01:08 by paco              #+#    #+#             */
-/*   Updated: 2026/01/12 22:45:29 by paco             ###   ########.fr       */
+/*   Created: 2026/01/15 14:04:20 by paco              #+#    #+#             */
+/*   Updated: 2026/01/15 14:45:09 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    stack_add_back(t_stack *stack, t_stacknode *node)
+void    push_a(t_stack *a, t_stack *b)
 {
-    if (!stack || !node)
+    t_stacknode *node;
+
+    if (!b || b->length == 0)
         return ;
-    if (stack->start == NULL)
-    {
-        stack->start = node;
-        stack->end = node;
-    }
-    else
-    {
-        node->previous = stack->end;
-        stack->end->next = node;
-        stack->end = node;
-    }
-    stack->length++;
+    node = stack_pop_front(b);
+    stack_push_front(a, node);
+    write(1, "pa\n", 3);
 }
