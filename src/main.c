@@ -6,7 +6,7 @@
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:39:50 by paco              #+#    #+#             */
-/*   Updated: 2026/01/15 14:09:05 by paco             ###   ########.fr       */
+/*   Updated: 2026/01/20 21:34:32 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,18 @@ int	main(int argc, char **argv)
         return (1);
     a = make_stack_a(tabstr);
     ft_free_tabstr(tabstr);
-    stack_init(&b);
-    ft_printf("A\n");
+    ft_printf("A:\n");
     stack_print(&a);
-    ft_printf("B\n");
+    ft_printf("B:\n");
     stack_print(&b);
-    ft_printf("After A\n");
+    put_index(&a);
+    if (a.length <= 5)
+        algo_small(&a, &b);
+    else
+        algo_base(&a, &b);
+    ft_printf("After A:\n");
     stack_print(&a);
-    ft_printf("After B\n");
+    ft_printf("After B:\n");
     stack_print(&b);
     stack_clear(&a);
     stack_clear(&b);

@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                         :+:      :+:    :+:   */
+/*   algo_index.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 16:32:09 by paco              #+#    #+#             */
-/*   Updated: 2026/01/19 13:58:20 by paco             ###   ########.fr       */
+/*   Created: 2026/01/16 17:02:41 by paco              #+#    #+#             */
+/*   Updated: 2026/01/19 14:58:10 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stacknode *new_node(int value)
+int make_index(t_stack *a, t_stacknode *node_comp)
+{
+    t_stacknode *node;
+    int index;
+
+    index = a->length -1;
+    node = a->start;
+    while (node)
+    {
+        if (node->value > node_comp->value)
+            index--;
+        node = node->next;
+    }
+    return (index);
+}
+
+void    put_index(t_stack *a)
 {
     t_stacknode *node;
 
-    node = malloc(sizeof(t_stacknode));
-    if (!node)
-        return (NULL);
-    node->value = value;
-    node->index = -1;
-    node->previous = NULL;
-    node->next = NULL;
-    return (node);
+    node = a->start;
+    while (node)
+    {
+        node->index = make_index(a, node);
+        node = node->next;
+    }
 }

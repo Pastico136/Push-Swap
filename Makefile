@@ -22,6 +22,9 @@ SRC = src/parser.c \
 	src/instructions/rra.c \
 	src/instructions/rrb.c \
 	src/instructions/rrr.c \
+	src/algo/algo_index.c \
+	src/algo/algo_butterfly.c \
+	src/algo/algo_small.c \
 	src/main.c
 
 HEADER = -I includes/ \
