@@ -6,7 +6,7 @@
 /*   By: parenvoi <parenvoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 21:53:31 by parenvoi          #+#    #+#             */
-/*   Updated: 2026/01/21 15:44:15 by parenvoi         ###   ########.fr       */
+/*   Updated: 2026/01/21 17:42:16 by parenvoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,8 @@ char	**parsing_base(int argc, char **argv)
 {
 	char	**tabstr;
 
+	if (argc < 2)
+		return (NULL);
 	if (check_null_empty(argc, argv))
 	{
 		write(2, "Error\n", 6);
