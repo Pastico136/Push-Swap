@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   stack_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: parenvoi <parenvoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:34:53 by paco              #+#    #+#             */
-/*   Updated: 2026/01/20 14:48:04 by paco             ###   ########.fr       */
+/*   Updated: 2026/01/21 13:46:48 by parenvoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    stack_print(t_stack *stack)
+void	stack_print(t_stack *stack)
 {
-    t_stacknode *node;
-    node = stack->start;
-    while (node)
-    {
-        ft_printf("Index = %d\nValue = [%d]\n\n", node->index, node->value);
-        node = node->next;
-    }
+	t_stacknode	*node;
+
+	node = stack->start;
+	while (node)
+	{
+		ft_printf("Index = %d\nValue = [%d]\n\n", node->index, node->value);
+		node = node->next;
+	}
 }

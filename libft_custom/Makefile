@@ -53,7 +53,8 @@ src/ft_putchar_fd.c \
 src/ft_putstr_fd.c \
 src/ft_putendl_fd.c \
 src/ft_putnbr_fd.c \
-src/ft_free_tabstr.c
+src/ft_free_tabstr.c \
+src/ft_isspace.c
 
 SRCS = $(SRC_PRINTF) \
 $(SRC_GNL) \

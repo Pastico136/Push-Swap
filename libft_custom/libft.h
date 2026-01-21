@@ -3,31 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: parenvoi <parenvoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 18:30:15 by parenvoi          #+#    #+#             */
-/*   Updated: 2026/01/08 12:20:17 by paco             ###   ########.fr       */
+/*   Updated: 2026/01/21 14:18:40 by parenvoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "ft_printf/ft_printf.h"
+# include "gnl/get_next_line.h"
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_printf/ft_printf.h"
-# include "gnl/get_next_line.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_isspace(int c);
+
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *str);
-long    ft_atol(const char *str);
+long	ft_atol(const char *str);
 size_t	ft_strlen(const char *s);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -49,11 +51,11 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-void    ft_free_tabstr(char **tabstr);
+void	ft_free_tabstr(char **tabstr);
 
 #endif

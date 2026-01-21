@@ -47,7 +47,7 @@ $(NAME) : $(OBJ) $(LIBFT)
 	$(CC) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
-	$(MAKE) -C $(dir $(LIBFT))
+	$(MAKE) -C $(dir $(LIBFT)) -j
 
 clean :
 	rm -f $(OBJ)

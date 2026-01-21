@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: parenvoi <parenvoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:49 by paco              #+#    #+#             */
-/*   Updated: 2026/01/06 14:06:53 by paco             ###   ########.fr       */
+/*   Updated: 2026/01/21 13:50:37 by parenvoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	long	res;
 	long	sign;

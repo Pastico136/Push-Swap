@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_tabstr.c                                   :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parenvoi <parenvoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 11:51:07 by paco              #+#    #+#             */
-/*   Updated: 2026/01/21 13:50:43 by parenvoi         ###   ########.fr       */
+/*   Created: 2026/01/21 14:04:30 by parenvoi          #+#    #+#             */
+/*   Updated: 2026/01/21 16:21:46 by parenvoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_tabstr(char **tabstr)
+int	ft_isspace(int c)
 {
-	int	i;
-
-	i = 0;
-	while (tabstr[i])
-	{
-		free(tabstr[i]);
-		i++;
-	}
-	free(tabstr);
+	if (ft_strchr("\t\n\v\f\r ", c))
+		return (1);
+	return (0);
 }

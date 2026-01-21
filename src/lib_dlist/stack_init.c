@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: parenvoi <parenvoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 16:27:20 by paco              #+#    #+#             */
-/*   Updated: 2026/01/12 22:45:17 by paco             ###   ########.fr       */
+/*   Updated: 2026/01/21 13:46:50 by parenvoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    stack_init(t_stack *stack)
+void	stack_init(t_stack *stack)
 {
-    stack->length = 0;
-    stack->start = NULL;
-    stack->end = NULL;
+	stack->length = 0;
+	stack->start = NULL;
+	stack->end = NULL;
 }

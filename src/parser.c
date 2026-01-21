@@ -3,21 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paco <paco@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: parenvoi <parenvoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 21:53:31 by parenvoi          #+#    #+#             */
-/*   Updated: 2026/01/12 23:55:00 by paco             ###   ########.fr       */
+/*   Updated: 2026/01/21 15:44:15 by parenvoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	check_null_empty(int argc, char **argv)
+{
+	int	index;
+	int	j;
+	int	flag;
 
-//split_arg = split join all arg, remove space and split all nb
+	if (!argv)
+		return (1);
+	index = 1;
+	while (index < argc)
+	{
+		if (!(argv[index][0]))
+			return (1);
+		j = 0;
+		flag = 1;
+		while (argv[index][j])
+			if (ft_isdigit(argv[index][j++]))
+				flag = 0;
+		if (flag)
+			return (1);
+		index++;
+	}
+	return (0);
+}
+
+// split_arg = split join all arg, remove space and split all nb
 
 char	**split_arg(int argc, char **argv)
 {
-	int	i;
+	int		i;
 	char	*tmp_str;
 	char	*join_nb;
 	char	**tab_nb;
@@ -35,14 +59,13 @@ char	**split_arg(int argc, char **argv)
 		i++;
 	}
 	tab_nb = ft_split(join_nb, ' ');
-	free (join_nb);
+	free(join_nb);
 	if (!tab_nb || !tab_nb[0])
 		return (0);
 	return (tab_nb);
 }
 
-
-//parser = Check all char and check all sign and position
+// parser = Check all char and check all sign and position
 
 int	parser(char **tabstr)
 {
@@ -55,11 +78,13 @@ int	parser(char **tabstr)
 		j = 0;
 		while (tabstr[i][j])
 		{
-			if (!(tabstr[i][j] >= '0' && tabstr[i][j] <= '9') && tabstr[i][j] != '+' && tabstr[i][j] != '-')
+			if (!(tabstr[i][j] >= '0' && tabstr[i][j] <= '9')
+				&& tabstr[i][j] != '+' && tabstr[i][j] != '-')
 				return (1);
 			if (j != 0 && (tabstr[i][j] == '+' || tabstr[i][j] == '-'))
 				return (1);
-			if ((tabstr[i][j] == '+' || tabstr[i][j] == '-') && !(tabstr[i][j + 1] >= '0' && tabstr[i][j + 1] <= '9'))
+			if ((tabstr[i][j] == '+' || tabstr[i][j] == '-') && !(tabstr[i][j
+					+ 1] >= '0' && tabstr[i][j + 1] <= '9'))
 				return (1);
 			j++;
 		}
@@ -68,13 +93,12 @@ int	parser(char **tabstr)
 	return (0);
 }
 
-
-//check_nb = check overflow and check duplicate nb
+// check_nb = check overflow and check duplicate nb
 
 int	check_nb(char **tabstr)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	long	tmp;
 
 	i = 0;
@@ -95,13 +119,17 @@ int	check_nb(char **tabstr)
 	return (0);
 }
 
-
-//call all mi function for parsing here
+// call all mi function for parsing here
 
 char	**parsing_base(int argc, char **argv)
 {
 	char	**tabstr;
 
+	if (check_null_empty(argc, argv))
+	{
+		write(2, "Error\n", 6);
+		return (NULL);
+	}
 	tabstr = split_arg(argc, argv);
 	if (!tabstr || parser(tabstr) == 1 || check_nb(tabstr) == 1)
 	{
